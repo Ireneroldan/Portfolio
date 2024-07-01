@@ -5,11 +5,18 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        background: '#00001e',
-        primary: '#cdceee',
-        secundary: '#a2a4df',
-        accent: 'hsl(96, 95%, 59%)',
+        animated:'radial-gradient(circle, #fbc2eb, #a18cd1)',
+        background: '#f5f7f8',
+        primary: '#45474B',
+        secundary: '#1E0342',
+        accent: '#379777',
+        nav: '#FEFEFE', 
+        text: '#45474b',
+        green: '#7FD1AE'
       },
+      backgroundImage: theme => ({
+        'animated': 'radial-gradient(circle, #fbc2eb, #a18cd1)',
+      }),
 
       fontFamily: {
         sans: ['Afacad', 'sans-serif'],
