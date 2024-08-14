@@ -67,7 +67,7 @@ function Index() {
                     <strong>{language === 'en' ? 'LinkedIn:' : 'LinkedIn:'}</strong> irene-roldan-montiel
                 </p>
                 <p className="text-text my-2">
-                    <strong>{language === 'en' ? 'GitHub:' : 'GitHub:'}</strong> irene-roldan-montiel
+                    <strong>{language === 'en' ? 'GitHub:' : 'GitHub:'}</strong> Ireneroldan
                 </p>
                 <p className="text-text">
                     {language === 'en' ? 'Barcelona, Spain' : 'Barcelona, España'}
