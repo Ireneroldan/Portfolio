@@ -1,18 +1,22 @@
-import React from 'react'
-import { projects } from '../data'
+import React, { useContext } from 'react';
+import { projects } from '../data';
+import { LanguageContext } from './LanguageContext'; // Importa el contexto de idioma
 
 export default function Projects() {
+    const { language } = useContext(LanguageContext); // Obtén el idioma actual
+
     return (
         <section id="projects" className="text-primary bg-background body-font">
             <div className="container px-5 py-10 mx-auto text-center lg:px-40">
                 <div className="flex flex-col w-full mb-20">
                     <h1 className="sm:text-3xl text-3xl font-bold title-font mb-4 text-accent">
-                        APPS I'VE BUILT.
+                        {language === 'en' ? "APPS I'VE BUILT" : 'APPS QUE HE CREADO'}
                     </h1>
                     <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Explicabo
-                        facilis repellat ab cupiditate alias vero aliquid obcaecati quisquam
-                        fuga dolore.
+                        {language === 'en'
+                            ? 'In this section, I present some of the applications I have developed. These projects represent my growth as a developer.'
+                            : 'En esta sección, presento algunas de las aplicaciones que he desarrollado. Estos proyectos representan mi evolución como desarrolladora.' 
+                        }
                     </p>
                 </div>
                 <div className="flex flex-wrap -m-4">
@@ -34,7 +38,9 @@ export default function Projects() {
                                     <h1 className="title-font text-lg font-medium text-white mb-3">
                                         {project.title}
                                     </h1>
-                                    <p className="leading-relaxed">{project.description}</p>
+                                    <p className="leading-relaxed">
+                                        {project.description}
+                                    </p>
                                 </div>
                             </div>
                         </a>
@@ -42,5 +48,5 @@ export default function Projects() {
                 </div>
             </div>
         </section>
-    )
+    );
 }

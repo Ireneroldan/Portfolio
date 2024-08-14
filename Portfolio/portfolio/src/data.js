@@ -3,10 +3,10 @@ export const skills = [
     "React",
     "Node.js",
     "CSS",
-    "HTML",
+    "HTML5",
     "Typescript",
     "Git",
-    "Docker"
+    "Testing: Mocha, Chai, Jest"
 ]
 
 export const projects = [

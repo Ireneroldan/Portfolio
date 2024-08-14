@@ -1,24 +1,36 @@
-import React from 'react'
-import About from './About'
-import Navbar from './Navbar'
-import Skills from './Skills'
-import Projects from './Projects'
-import '../index.css'
+import React, { useContext } from 'react';
+import About from './About';
+import Navbar from './Navbar';
+import Skills from './Skills';
+import Projects from './Projects';
+import { LanguageContext } from './LanguageContext'; // Asegúrate de importar el contexto
+import '../index.css';
 
 function Index() {
+    const { language } = useContext(LanguageContext);
+
     return (
         <body className='bg-animated'>
             <Navbar></Navbar>
             <div className="min-h-screen flex items-center justify-center px-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-7xl mx-auto">
                     <div className="text-center md:text-left">
-                        <p className="relative inline-block text-accent font-mono font-bold text-sm">
-                            👋 HI!, my name is
+                        <p className="relative inline-block text-accent font-mono font-bold text-xl">
+                            {language === 'en' ? '👋 HI!, my name is' : '👋 ¡Hola!, me llamo'}
                             <span className="absolute inset-0 bg-gray-300 mix-blend-multiply z-0 transform -skew-y-6"></span>
                         </p>
-                        <h1 className="text-black font-sans font-bold text-4xl mb-2">Irene Roldán.</h1>
-                        <h3 className="text-secundary font-sans font-bold text-3xl mb-1">I build websites as a full stack developer.</h3>
-                        <p className="text-text font-sans text-lg mb-10">I am a junior web developer, specializing in building efficient and engaging digital experiences. Currently, I am focused on learning new technologies and strengthening my skills. My goal is to effectively apply my abilities to create innovative solutions and advance in my career in web development.</p>
+                        <h1 className="text-black font-sans font-bold text-4xl mb-2">
+                            {language === 'en' ? 'Irene Roldán.' : 'Irene Roldán.'}
+                        </h1>
+                        <h3 className="text-secundary font-sans font-bold text-3xl mb-1">
+                            {language === 'en' ? 'I build websites as a full stack developer.' : 'Construyo sitios web como desarrolladora full stack.'}
+                        </h3>
+                        <p className="text-text font-sans text-lg mb-10">
+                            {language === 'en' 
+                                ? "I am a junior web developer, specializing in building efficient and engaging digital experiences. Currently, I am focused on learning new technologies and strengthening my skills. My goal is to effectively apply my abilities to create innovative solutions and advance in my career in web development."
+                                : "Soy una desarrolladora web junior, especializada en crear experiencias digitales eficientes y atractivas. Actualmente, estoy enfocada en aprender nuevas tecnologías y fortalecer mis habilidades. Mi objetivo es aplicar eficazmente mis capacidades para crear soluciones innovadoras y avanzar en mi carrera en el desarrollo web."
+                            }
+                        </p>
                     </div>
 
                     <div className="md:fixed md:right-10 md:top-1/2 md:transform md:-translate-y-1/2 md:flex md:flex-col md:items-center md:gap-4">
@@ -33,7 +45,8 @@ function Index() {
                             </svg>
                         </a>
                         <a href="mailto:irene.roldan.montiel@gmail.com" className="text-white">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="30" viewBox="0 0 24 24"><path fill="#000000" d="m20 8l-8 5l-8-5V6l8 5l8-5m0-2H4c-1.11 0-2 .89-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="30" viewBox="0 0 24 24">
+                                <path fill="#000000" d="m20 8l-8 5l-8-5V6l8 5l8-5m0-2H4c-1.11 0-2 .89-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2"/></svg>
                         </a>
                     </div>
                 </div>
@@ -44,15 +57,25 @@ function Index() {
             <Projects></Projects>
 
             <footer className="bg-background w-full px-4 py-8 text-center">
-                <h3 className="text-primary font-bold text-lg" id="contact">CONTACT</h3>
-                <p className="text-text my-2"><strong>Email:</strong> irene.roldan.montiel@gmail.com</p>
-                <p className="text-text my-2"><strong>LinkedIn:</strong> irene-roldan-montiel</p>
-                <p className="text-text my-2"><strong>GitHub:</strong> irene-roldan-montiel</p>
-                <p className="text-text">Barcelona, Spain</p>
+                <h3 className="text-primary font-bold text-lg" id="contact">
+                    {language === 'en' ? 'CONTACT' : 'CONTACTO'}
+                </h3>
+                <p className="text-text my-2">
+                    <strong>{language === 'en' ? 'Email:' : 'Correo electrónico:'}</strong> irene.roldan.montiel@gmail.com
+                </p>
+                <p className="text-text my-2">
+                    <strong>{language === 'en' ? 'LinkedIn:' : 'LinkedIn:'}</strong> irene-roldan-montiel
+                </p>
+                <p className="text-text my-2">
+                    <strong>{language === 'en' ? 'GitHub:' : 'GitHub:'}</strong> irene-roldan-montiel
+                </p>
+                <p className="text-text">
+                    {language === 'en' ? 'Barcelona, Spain' : 'Barcelona, España'}
+                </p>
                 <p></p>
             </footer>
         </body>
-
-    )
+    );
 }
-export default Index
+
+export default Index;

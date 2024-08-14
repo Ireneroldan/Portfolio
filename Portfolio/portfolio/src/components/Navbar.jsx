@@ -1,12 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
+import { LanguageContext } from './LanguageContext';
 
 function Navbar() {
-    const [language, setLanguage] = useState('en'); // Estado para el idioma
+    const { language, changeLanguage } = useContext(LanguageContext);
 
-    // Función para cambiar el idioma
-    const changeLanguage = (event) => {
-        setLanguage(event.target.value);
-        // Aquí puedes añadir la lógica para cambiar el contenido del idioma
+    const handleLanguageChange = (event) => {
+        changeLanguage(event.target.value);
     };
 
     return (
@@ -19,7 +18,7 @@ function Navbar() {
                     <select
                         id="language"
                         value={language}
-                        onChange={changeLanguage}
+                        onChange={handleLanguageChange}
                         className="border border-gray-300 rounded p-1"
                     >
                         <option value="en">English</option>
